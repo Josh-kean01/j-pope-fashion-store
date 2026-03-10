@@ -16,6 +16,7 @@ import OrderSuccess from './pages/OrderSuccess';
 import Journal from './pages/Journal';
 import JournalArticle from './pages/JournalArticle';
 import Wishlist from './pages/Wishlist';
+import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
@@ -126,6 +127,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:id" element={<JournalArticle />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/profile" element={<Profile wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />
