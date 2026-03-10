@@ -20,7 +20,7 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
               poster={heroImage}
               className="w-full h-full object-cover scale-105"
             >
-              <source src="https://videos.pexels.com/video-files/5532765/5532765-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+              <source src="https://cdn.pixabay.com/video/2022/11/28/140828-776043783_large.mp4" type="video/mp4" />
             </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         </div>
