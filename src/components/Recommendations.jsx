@@ -2,7 +2,7 @@ import React from 'react';
 import { products } from '../data/products';
 import ProductCard from './ProductCard';
 
-const Recommendations = () => {
+const Recommendations = ({ addToCart, toggleWishlist, wishlistItems }) => {
   // Use a subset of products for recommendations
   const recommendedProducts = products.slice(1, 5);
 
@@ -12,7 +12,13 @@ const Recommendations = () => {
         <h2 className="font-serif text-center text-brand-dark mb-12 text-4xl">You May Also Like</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {recommendedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onAddToCart={addToCart}
+              toggleWishlist={toggleWishlist}
+              wishlistItems={wishlistItems}
+            />
           ))}
         </div>
       </div>

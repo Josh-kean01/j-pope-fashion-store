@@ -33,9 +33,9 @@ const Collections = ({ addToCart, toggleWishlist, wishlistItems }) => {
                       loop 
                       muted 
                       playsInline
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-10"
+                      className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-1000 z-10"
                     >
-                      <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc0949dbc0560a87f2fa837ee3d45e75878af3ea&profile_id=165" type="video/mp4" />
+                      <source src="https://videos.pexels.com/video-files/5532765/5532765-uhd_2560_1440_25fps.mp4" type="video/mp4" />
                     </video>
                     <img 
                       src={collection.heroImage} 

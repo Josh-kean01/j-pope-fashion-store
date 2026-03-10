@@ -23,7 +23,11 @@ const ProductDetail = ({ addToCart, toggleWishlist, wishlistItems }) => {
         </div>
       </main>
       
-      <Recommendations />
+      <Recommendations 
+        addToCart={addToCart} 
+        toggleWishlist={toggleWishlist} 
+        wishlistItems={wishlistItems} 
+      />
     </div>
   );
 };

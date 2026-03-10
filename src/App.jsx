@@ -14,6 +14,8 @@ import SearchOverlay from './components/SearchOverlay';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
 import Journal from './pages/Journal';
+import Wishlist from './pages/Wishlist';
+import Profile from './pages/Profile';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
 
@@ -112,11 +114,13 @@ function App() {
             <Route path="/" element={<Home addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/shop" element={<ProductList addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/collections" element={<Collections addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
-            <Route path="/lookbook" element={<Lookbook addToCart={addToCart} />} />
+            <Route path="/lookbook" element={<Lookbook addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
              <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/product" element={<ProductDetail addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/about" element={<About />} />
             <Route path="/journal" element={<Journal />} />
+            <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
+            <Route path="/profile" element={<Profile wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />
             <Route path="/order-success" element={<OrderSuccess />} />
           </Routes>

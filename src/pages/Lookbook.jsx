@@ -2,7 +2,7 @@ import React from 'react';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
-const Lookbook = ({ addToCart }) => {
+const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
   return (
     <div className="bg-brand-bg min-h-screen">
       {/* Chapter 1: Structure & Form */}
@@ -152,7 +152,13 @@ const Lookbook = ({ addToCart }) => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {products.slice(0, 4).map(product => (
-              <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                onAddToCart={addToCart} 
+                toggleWishlist={toggleWishlist} 
+                wishlistItems={wishlistItems} 
+              />
             ))}
           </div>
           <div className="mt-24 text-center">

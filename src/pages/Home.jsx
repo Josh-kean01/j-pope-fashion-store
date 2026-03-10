@@ -12,15 +12,16 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
       {/* Hero Section with Cinematic Video */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover scale-105"
-          >
-            <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc0949dbc0560a87f2fa837ee3d45e75878af3ea&profile_id=165" type="video/mp4" />
-          </video>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              poster={heroImage}
+              className="w-full h-full object-cover scale-105"
+            >
+              <source src="https://videos.pexels.com/video-files/5532765/5532765-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         </div>
         

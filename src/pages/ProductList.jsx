@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
-const ProductList = ({ addToCart }) => {
+const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -96,7 +96,13 @@ const ProductList = ({ addToCart }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-16 min-h-[40vh]">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(p => (
-            <ProductCard key={p.id} product={p} onAddToCart={addToCart} />
+            <ProductCard 
+              key={p.id} 
+              product={p} 
+              onAddToCart={addToCart} 
+              toggleWishlist={toggleWishlist} 
+              wishlistItems={wishlistItems} 
+            />
           ))
         ) : (
           <div className="col-span-full text-center py-20">
