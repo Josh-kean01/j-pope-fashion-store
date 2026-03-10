@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import Selector from './Selector';
 import ProductAccordion from './ProductAccordion';
 
-const ProductInfo = ({ product, onAddToCart }) => {
+const ProductInfo = ({ product, onAddToCart, toggleWishlist, wishlistItems = [] }) => {
   if (!product) return null;
 
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || { label: 'Default', value: '#000' });
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[Math.floor(product.sizes.length / 2)] || 'M');
+  const isWishlisted = wishlistItems.some(item => item.id === product.id);
 
   return (
     <div className="lg:col-span-5 lg:sticky lg:top-24" data-purpose="product-info-card">
@@ -15,13 +16,30 @@ const ProductInfo = ({ product, onAddToCart }) => {
         <div className="mb-6 border-b border-gray-100 pb-6">
           <div className="flex justify-between items-start mb-2">
             <h1 className="font-serif text-brand-dark leading-tight text-5xl">{product.name}</h1>
-            <button aria-label="Add to Wishlist" className="text-gray-400 hover:text-red-500 transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <button 
+              onClick={() => toggleWishlist(product)}
+              aria-label="Add to Wishlist" 
+              className={`p-2 rounded-full transition-all duration-300 ${isWishlisted ? 'text-red-500 bg-red-50' : 'text-gray-400 hover:text-brand-dark hover:bg-gray-50'}`}
+            >
+              <svg 
+                className={`w-6 h-6 ${isWishlisted ? 'fill-current' : ''}`} 
+                fill={isWishlisted ? "currentColor" : "none"} 
+                stroke="currentColor" 
+                strokeWidth="1.5" 
+                viewBox="0 0 24 24"
+              >
                 <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" strokeLinecap="round" strokeLinejoin="round"></path>
               </svg>
             </button>
           </div>
-          <p className="text-xl text-gray-600 font-light">{product.price}</p>
+          <div className="flex items-center gap-4">
+            <p className="text-xl text-gray-600 font-light">{product.price}</p>
+            {product.stock <= 5 && (
+              <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full animate-pulse">
+                {product.stock <= 3 ? `Limited: Only ${product.stock} left` : 'Few pieces remaining'}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Description */}

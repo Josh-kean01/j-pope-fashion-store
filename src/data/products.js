@@ -10,6 +10,7 @@ export const products = [
         category: "Outerwear",
         keywords: ["coat", "jacket", "wool", "winter", "outerwear", "The Minimalist Edit", "Urban Sanctuary", "Seasonal Edition", "Autumn Winter 2024", "Quiet Luxury Rituals"],
         price: "€895.00",
+        stock: 3,
         description: "Crafted from a luxurious hand-stitched wool and cashmere blend, this signature coat features a fluid shawl collar and cocoon silhouette. The double-faced finish provides exceptional warmth without the weight.",
         image: coatImage,
         thumbnails: [
@@ -37,6 +38,7 @@ export const products = [
         category: "Knitwear",
         keywords: ["knit", "sweater", "cashmere", "turtleneck", "top", "Urban Sanctuary", "Seasonal Edition", "Autumn Winter 2024"],
         price: "€345.00",
+        stock: 8,
         description: "A mid-weight essential knitted from exceptionally soft cashmere. Features a structured turtleneck and ribbed trims for a refined yet comfortable silhouette.",
         image: turtleneckImage,
         thumbnails: [
@@ -60,6 +62,7 @@ export const products = [
         category: "Trousers",
         keywords: ["pants", "trousers", "tailored", "wool", "bottoms", "The Minimalist Edit", "Seasonal Edition"],
         price: "€425.00",
+        stock: 2,
         description: "High-waisted tailored trousers with a sharp front crease and wide-leg silhouette. Constructed from premium Italian wool gabardine for a sophisticated drape.",
         image: trousersImage,
         thumbnails: [
@@ -83,6 +86,7 @@ export const products = [
         category: "Footwear",
         keywords: ["boots", "shoes", "shoe", "footwear", "leather", "ankle boots", "Evening Noir", "Special Edition"],
         price: "€550.00",
+        stock: 12,
         description: "Sculptural ankle boots crafted from smooth Italian calfskin. Features a clean-lined silhouette with a square toe and comfortable block heel.",
         image: bootsImage,
         thumbnails: [
@@ -105,6 +109,7 @@ export const products = [
         category: "Accessories",
         keywords: ["scarf", "silk", "accessory", "patterned", "twill", "Evening Noir", "Special Edition"],
         price: "€195.00",
+        stock: 15,
         description: "An elongated silk scarf featuring a minimalist geometric pattern. The luxurious twill fabric provides a subtle sheen and elegant drape.",
         image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop",
         thumbnails: [

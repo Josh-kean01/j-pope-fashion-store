@@ -12,14 +12,33 @@ import About from './pages/About';
 import CartDrawer from './components/CartDrawer';
 import SearchOverlay from './components/SearchOverlay';
 import Checkout from './pages/Checkout';
+import OrderSuccess from './pages/OrderSuccess';
+import Journal from './pages/Journal';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [wishlistItems, setWishlistItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [toast, setToast] = useState({ show: false, message: '' });
+
+  // Persistence
+  React.useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    const savedWishlist = localStorage.getItem('wishlist');
+    if (savedCart) setCartItems(JSON.parse(savedCart));
+    if (savedWishlist) setWishlistItems(JSON.parse(savedWishlist));
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  React.useEffect(() => {
+    localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+  }, [wishlistItems]);
 
   const showToast = (message) => {
     setToast({ show: true, message });
@@ -46,6 +65,18 @@ function App() {
     });
     showToast(`${product.name} added to bag`);
     setIsCartOpen(true);
+  };
+
+  const toggleWishlist = (product) => {
+    setWishlistItems(prev => {
+      const isWishlisted = prev.find(item => item.id === product.id);
+      if (isWishlisted) {
+        showToast(`${product.name} removed from wishlist`);
+        return prev.filter(item => item.id !== product.id);
+      }
+      showToast(`${product.name} added to wishlist`);
+      return [...prev, product];
+    });
   };
 
   const updateQuantity = (id, quantity) => {
@@ -78,14 +109,16 @@ function App() {
         
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home addToCart={addToCart} />} />
-            <Route path="/shop" element={<ProductList addToCart={addToCart} />} />
-            <Route path="/collections" element={<Collections addToCart={addToCart} />} />
+            <Route path="/" element={<Home addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
+            <Route path="/shop" element={<ProductList addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
+            <Route path="/collections" element={<Collections addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/lookbook" element={<Lookbook addToCart={addToCart} />} />
-             <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
-            <Route path="/product" element={<ProductDetail addToCart={addToCart} />} />
+             <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
+            <Route path="/product" element={<ProductDetail addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/journal" element={<Journal />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
           </Routes>
         </main>
         

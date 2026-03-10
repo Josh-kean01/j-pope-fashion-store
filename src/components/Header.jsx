@@ -17,6 +17,7 @@ const Header = ({ cartCount, onCartClick, onSearchClick }) => {
           <Link to="/shop" className="text-sm font-bold uppercase tracking-widest hover:text-brand-accent transition-colors">SHOP</Link>
           <Link to="/collections" className="text-sm font-bold uppercase tracking-widest hover:text-brand-accent transition-colors">COLLECTIONS</Link>
           <Link to="/lookbook" className="text-sm font-bold uppercase tracking-widest hover:text-brand-accent transition-colors">LOOKBOOK</Link>
+          <Link to="/journal" className="text-sm font-bold uppercase tracking-widest hover:text-brand-accent transition-colors">JOURNAL</Link>
           <Link to="/about" className="text-sm font-bold uppercase tracking-widest hover:text-brand-accent transition-colors">ABOUT</Link>
         </nav>
         

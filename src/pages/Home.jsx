@@ -4,20 +4,24 @@ import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import heroImage from '../assets/images/hero.png';
 
-const Home = ({ addToCart }) => {
+const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
   const trendingProducts = products.slice(0, 4);
 
   return (
     <div className="animate-fadeIn">
-      {/* Hero Section */}
+      {/* Hero Section with Cinematic Video */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="J-Pope Cinematic Hero" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover scale-105"
+          >
+            <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc0949dbc0560a87f2fa837ee3d45e75878af3ea&profile_id=165" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         </div>
         
         <div className="relative z-10 text-center text-white px-6 w-full max-w-5xl">
@@ -111,7 +115,7 @@ const Home = ({ addToCart }) => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {trendingProducts.map(p => (
-              <ProductCard key={p.id} product={p} onAddToCart={addToCart} />
+              <ProductCard key={p.id} product={p} onAddToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />
             ))}
           </div>
         </div>

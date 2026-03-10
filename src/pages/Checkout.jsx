@@ -30,8 +30,7 @@ const Checkout = ({ cartItems, cartCount }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // In a real app, this would process the payment
-    alert('Order placed successfully! (Demo)');
-    navigate('/');
+    navigate('/order-success');
   };
 
   if (cartItems.length === 0) {

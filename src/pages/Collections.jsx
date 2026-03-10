@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { collections } from '../data/collections';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import Moodboard from '../components/Moodboard';
 
-const Collections = ({ addToCart }) => {
+const Collections = ({ addToCart, toggleWishlist, wishlistItems }) => {
   return (
     <div className="bg-brand-bg min-h-screen animate-fadeIn">
       {/* Intro Section */}
@@ -27,12 +28,21 @@ const Collections = ({ addToCart }) => {
               <div className="container mx-auto px-6 mb-24">
                 <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}>
                   <div className="w-full lg:w-3/5 aspect-[16/9] rounded-[3rem] overflow-hidden shadow-2xl relative group">
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-10"
+                    >
+                      <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc0949dbc0560a87f2fa837ee3d45e75878af3ea&profile_id=165" type="video/mp4" />
+                    </video>
                     <img 
                       src={collection.heroImage} 
                       alt={collection.title} 
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-700 z-20"></div>
                   </div>
                   
                   <div className="w-full lg:w-2/5 space-y-8">
@@ -75,7 +85,7 @@ const Collections = ({ addToCart }) => {
                      </div>
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                         {featuredItems.map(product => (
-                          <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                          <ProductCard key={product.id} product={product} onAddToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />
                         ))}
                      </div>
                   </div>
@@ -120,13 +130,8 @@ const Collections = ({ addToCart }) => {
                  <div className="max-w-4xl mx-auto text-center">
                     <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-dark/30 mb-6 block text-center">Behind the Design</span>
                     <h2 className="text-5xl font-serif text-brand-dark mb-12 uppercase tracking-tight">Experimental Prototype {collection.id.split('-')[0].toUpperCase()}.01</h2>
-                    <div className="relative aspect-[21/9] rounded-[4rem] overflow-hidden bg-gray-50 mb-12">
-                       <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1600&auto=format&fit=crop" alt="Sketch" className="w-full h-full object-cover mix-blend-multiply transition-transform duration-[3s] hover:scale-110" />
-                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-bg/10 to-brand-bg/40"></div>
-                       <div className="absolute bottom-12 left-12 text-left">
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-brand-dark mb-2">Technical Draft</p>
-                          <p className="text-gray-400 text-[9px] uppercase tracking-widest">Atelier J-Pope © 2024</p>
-                       </div>
+                    <div className="mb-12">
+                       <Moodboard images={[...collection.moodImages, collection.heroImage]} />
                     </div>
                     <p className="text-gray-500 font-light leading-relaxed max-w-2xl mx-auto italic">
                       This series explores the point of tension where structure fails and fluidity takes over. We used 3D-modeling to calculate the exact drape angle for each cocoon silhouette.
