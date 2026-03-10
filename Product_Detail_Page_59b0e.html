@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Oversized Wool Coat | AURUM &amp; OAK</title>
+    <!-- BEGIN: Font & Style Dependencies -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <!-- END: Font & Style Dependencies -->
+    <!-- BEGIN: Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#F5F5F7',
+                            accent: '#A89F70',
+                            accentHover: '#8e865b',
+                            dark: '#1A1A1A',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- END: Custom Configuration -->
+    <!-- BEGIN: Component Styles -->
+    <style data-purpose="accordions">
+        /* Custom styles for smoother accordion animation */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <style data-purpose="custom-utilities">
+        /* Hide scrollbar for cleaner carousel look if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <!-- END: Component Styles -->
+</head>
+
+<body class="bg-brand-bg font-sans text-brand-dark antialiased">
+    <!-- BEGIN: MainHeader -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100" data-purpose="navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex-shrink-0 w-32">
+                <a class="font-serif font-bold tracking-tight text-brand-dark text-3xl" style="font-variant: small-caps;" href="#">J-Pope</a>
+            </div>
+            <!-- Central Navigation -->
+            <nav class="hidden md:flex space-x-10">
+                <a class="text-sm font-medium hover:text-brand-accent transition-colors tracking-wide text-xs font-bold uppercase tracking-widest"
+                    href="#">SHOP</a>
+                <a class="text-sm font-medium hover:text-brand-accent transition-colors tracking-wide text-xs font-bold uppercase tracking-widest"
+                    href="#">COLLECTIONS</a>
+                <a class="text-sm font-medium hover:text-brand-accent transition-colors tracking-wide text-xs font-bold uppercase tracking-widest"
+                    href="#">ABOUT</a>
+                <a class="text-sm font-medium hover:text-brand-accent transition-colors tracking-wide text-xs font-bold uppercase tracking-widest"
+                    href="#">JOURNAL</a>
+            </nav>
+            <!-- Right Icons -->
+            <div class="flex items-center space-x-6 w-32 justify-end">
+                <button aria-label="Search" class="text-brand-dark hover:text-brand-accent transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <button aria-label="User Account" class="text-brand-dark hover:text-brand-accent transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <button aria-label="Shopping Cart"
+                    class="text-brand-dark hover:text-brand-accent transition-colors relative">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <!-- Cart Badge -->
+                    <span
+                        class="absolute -top-1.5 -right-1.5 bg-brand-accent text-white text-[10px] font-bold h-4 w-4 flex items-center justify-center rounded-full">1</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- END: MainHeader -->
+    <!-- BEGIN: ProductDetailSection -->
+    <main class="container mx-auto px-4 md:px-6 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- BEGIN: Left Column (Images) -->
+            <div class="lg:col-span-7 space-y-4" data-purpose="product-gallery">
+                <!-- Main Image Container -->
+                <div class="aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <img alt="The Oversized Wool Coat - Beige Front View" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFowhwj4-6vgg-mVRPXvRt66_KBj2bhox9FOOsPSSlxKa7lbz5h72rcPpSezAyScs5NVFi_ncMkptAjpOBxphBVmBoCfw65vWKHikRLAlKFAVPdKSoo6FcJEirXWQigS1HzhoqZGE2wMSxoueQQluu6iIw1KZ43B4DngPQ6k82G-LRoYzAA4OQO6yPKGZApZV2nKOZUjRpttmCymPatbt-kPsJMJGzEHZpVX3g9XCUPy9kzzR2C1-17Qk4qkxXLD480VEnQ8GilTIl" />
+                </div>
+                <!-- Thumbnails -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden cursor-pointer border-2 border-brand-accent">
+                        <img alt="Thumbnail 1" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFowhwj4-6vgg-mVRPXvRt66_KBj2bhox9FOOsPSSlxKa7lbz5h72rcPpSezAyScs5NVFi_ncMkptAjpOBxphBVmBoCfw65vWKHikRLAlKFAVPdKSoo6FcJEirXWQigS1HzhoqZGE2wMSxoueQQluu6iIw1KZ43B4DngPQ6k82G-LRoYzAA4OQO6yPKGZApZV2nKOZUjRpttmCymPatbt-kPsJMJGzEHZpVX3g9XCUPy9kzzR2C1-17Qk4qkxXLD480VEnQ8GilTIl" />
+                    </div>
+                    <div
+                        class="aspect-[3/4] rounded-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-300 transition-all">
+                        <div class="bg-gray-200 w-full h-full"></div>
+                    </div>
+                    <div
+                        class="aspect-[3/4] rounded-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-300 transition-all">
+                        <div class="bg-gray-200 w-full h-full"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Left Column (Images) -->
+            <!-- BEGIN: Right Column (Product Details Card) -->
+            <div class="lg:col-span-5 lg:sticky lg:top-24" data-purpose="product-info-card">
+                <!-- Floating Card -->
+                <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+                    <!-- Title & Price -->
+                    <div class="mb-6 border-b border-gray-100 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h1 class="font-serif text-brand-dark leading-tight text-5xl">The Oversized<br />Wool Coat
+                            </h1>
+                            <button aria-label="Add to Wishlist"
+                                class="text-gray-400 hover:text-red-500 transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-xl text-gray-600 font-light">€495.00</p>
+                    </div>
+                    <!-- Description -->
+                    <p class="text-gray-600 leading-relaxed mb-8 font-light">
+                        Crafted from a luxurious blend of wool and cashmere, this oversized coat features a classic
+                        double-breasted silhouette with wide lapels and deep pockets. An essential layer for the modern
+                        wardrobe.
+                    </p>
+                    <!-- Color Selection -->
+                    <div class="mb-6">
+                        <span class="block text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Color:
+                            <span class="font-normal text-gray-600">Beige</span></span>
+                        <div class="flex space-x-3"><button aria-label="Select Beige"
+                                class="w-8 h-8 rounded-full bg-[#D2CFC7] ring-2 ring-offset-2 ring-gray-800 focus:outline-none"></button>
+                            <button aria-label="Select Dark Grey"
+                                class="w-8 h-8 rounded-full bg-[#4A4A4A] focus:outline-none"></button>
+                            <button aria-label="Select Cream"
+                                class="w-8 h-8 rounded-full bg-[#FDFBF7] border border-gray-300 focus:outline-none"></button>
+                        </div>
+                    </div>
+                    <!-- Size Selection -->
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="block text-sm font-semibold text-gray-900 uppercase tracking-wide">Size: <span
+                                    class="font-normal text-gray-600">M</span></span>
+                            <a class="text-xs text-gray-500 underline hover:text-brand-dark transition-colors"
+                                href="#">SIZE GUIDE</a>
+                        </div>
+                        <div class="grid grid-cols-5 gap-2"><button
+                                class="w-10 h-10 flex items-center justify-center border rounded-md bg-white text-black border-gray-300 hover:border-black transition-colors">XS</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border rounded-md bg-white text-black border-gray-300 hover:border-black transition-colors">S</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border rounded-md bg-black text-white border-black shadow-md">M</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border rounded-md bg-white text-black border-gray-300 hover:border-black transition-colors">L</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border rounded-md bg-white text-black border-gray-300 hover:border-black transition-colors">XL</button>
+                        </div>
+                    </div>
+                    <!-- Add to Cart Button -->
+                    <button
+                        class="w-full bg-brand-accent hover:bg-brand-accentHover text-white font-medium py-4 rounded-lg shadow-lg shadow-brand-accent/20 transition-all transform active:scale-[0.99] mb-8 uppercase tracking-widest text-sm bg-[#A89F70] hover:bg-[#8e865b] uppercase font-bold tracking-widest">
+                        Add to Cart
+                    </button>
+                    <!-- Accordions -->
+                    <div class="border-t border-gray-100">
+                        <!-- Details Accordion (Open by default) -->
+                        <details class="group py-4 border-b border-gray-100" open="">
+                            <summary
+                                class="flex justify-between items-center font-medium cursor-pointer list-none text-brand-dark">
+                                <span class="uppercase text-sm tracking-wide">Details</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5" viewbox="0 0 24 24" width="24">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn text-sm leading-relaxed">
+                                <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                                    <li>90% Wool, 10% Cashmere</li>
+                                    <li>Lining: 100% Viscose</li>
+                                    <li>Oversized fit, dropped shoulders</li>
+                                    <li>Dry clean only</li>
+                                    <li>Made in Italy</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <!-- Shipping Accordion (Closed) -->
+                        <details class="group py-4 border-b border-gray-100">
+                            <summary
+                                class="flex justify-between items-center font-medium cursor-pointer list-none text-brand-dark">
+                                <span class="uppercase text-sm tracking-wide">Shipping &amp; Returns</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5" viewbox="0 0 24 24" width="24">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn text-sm leading-relaxed">
+                                <p>Free standard shipping on orders over €300. We accept returns within 14 days of
+                                    delivery. Items must be unworn and tags attached.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Right Column (Product Details Card) -->
+        </div>
+    </main>
+    <!-- END: ProductDetailSection -->
+    <!-- BEGIN: Recommendations Section -->
+    <section class="bg-white py-16 border-t border-gray-100 mt-20">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-center text-brand-dark mb-12 text-4xl">You May Also Like</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 mb-4">
+                        <img alt="Knit Turtleneck"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsVsWIqM6UhER3Ii8pKbN5XKDJBeow_QSQtEmlbexj3_LR5tsJsvaay1I62gevuhx_ocPPj_92_AFtmRTp5gyDs22F_8TkftmJQ3nDT4x9I2P8ipSMcoIKDxyeD9EfnBaAuxLyXKZxl0cB4-tGcOHty98AoGPQ4mvmBxfeLdTsfhSiiKNxNmSXS09jre9uTFKW0xIN-KqoZ8M3jJm_E_LKudb-wTxKD3MTS4gMrVuhWg0sSW2EjDA2jl7cjh7S5TmBBEjJ-E-TGaw2" />
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-dark mb-1">Knit Turtleneck</h3>
+                    <p class="text-gray-500 text-sm">€225.00</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 mb-4">
+                        <img alt="Tailored Trousers"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDWfT6-8_rX_HeXNIjwIauSjNyVW2mP8it2Xs-5K3g1L6djHWqa_OBlUi8lY5l6YjxBE9aVYmzCFhF2q0cxgJu9t29n7vhw5Dq4PT478MMS1AnYH2b1ekmafvFP0sZUar8r8O0QaNUlqkpK8Tkx9OSRy2MTXu4ELW3H-6UfVhvBWQ4f95yYyBG0OpP740z93KfdSSf5YGE4gJ_MnUi81c9U8Nfz50opIKkw9j_8ggMVhbPLPkseHHC-2CQAKI9MitV6IcQhXEJ-0ZX" />
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-dark mb-1">Tailored Trousers</h3>
+                    <p class="text-gray-500 text-sm">€350.00</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 mb-4">
+                        <img alt="Leather Boots"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN6k63azbMB05qLMYiWp_4wKaRz73BLNKTu-avm60mqwDpjzSOZZZp2bTdH4SWYA4UhvXqTkNakruRYwO4XNPpXA0arYg4AkiXUBhZLm14r6pyRNgkP1oPUVsKWBxxPiL44NazebI-AwNr-K4EWhFqD01hExDbTfJF_HCTIdtlilcAxZMufmEMKVNNAQe6bQe9EerPLHzSEUVIKLiATrIB87dsx3kQAsvXVwHRcUdqlu7Gopm9PHPz7c9GtrhjOu819j2mBg2wNdM3" />
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-dark mb-1">Leather Boots</h3>
+                    <p class="text-gray-500 text-sm">€595.00</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 mb-4">
+                        <img alt="Silk Scarf"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqbp2097240rOi52f_NRBbgqJsiX6r23amULEsXHN0Xcd4iqaObMoWo7KlZ6bjVUl02qhZV9qWA3zTPtMUo99xVjGOcKuNQ3-7Up1cfXXSpHERm8fVCoZD44LdhRctNhywIcpveqMBz7QIsozw3MxGa1L9bse8nao6yUvilzTJ6mGJYlOWZ0CYl7W5SOVoEXVXqG1fCJes2_iLbtdOUYSVyBq43LkDfYa82Y-2toWzau3EdrIk7ytI4usrT9APBaCFaXVYSwDrLHBz" />
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-dark mb-1">Silk Scarf</h3>
+                    <p class="text-gray-500 text-sm">€180.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Recommendations Section -->
+    <!-- BEGIN: Footer -->
+    <footer class="py-16 bg-white text-brand-dark border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center md:justify-end items-center mb-8">
+                <div class="flex space-x-8">
+                    <a class="text-sm text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider"
+                        href="#">Contact</a>
+                    <a class="text-sm text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider"
+                        href="#">Newsletter</a>
+                    <a class="text-sm text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider"
+                        href="#">Stores</a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>© 2023 Aurum &amp; Oak. All rights reserved.</p>
+                <!-- Social Icons -->
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a aria-label="Instagram" class="text-gray-400 hover:text-brand-accent transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.373c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a aria-label="Facebook" class="text-gray-400 hover:text-brand-accent transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>
