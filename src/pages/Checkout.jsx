@@ -144,7 +144,7 @@ const Checkout = ({ cartItems, cartCount }) => {
                     <h3 className="font-serif text-brand-dark leading-tight">{item.name}</h3>
                     <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Qty: {item.quantity}</p>
                   </div>
-                  <p className="font-serif text-brand-dark">${(item.price * item.quantity).toLocaleString()}</p>
+                  <p className="font-serif text-brand-dark">€{(parseFloat(String(item.price).replace(/[^0-9.]/g, '')) * item.quantity).toFixed(2)}</p>
                 </div>
               ))}
             </div>
@@ -152,7 +152,7 @@ const Checkout = ({ cartItems, cartCount }) => {
             <div className="space-y-4 pt-8 border-t border-gray-200">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500 font-light">Subtotal</span>
-                <span className="text-brand-dark font-serif">${subtotal.toLocaleString()}</span>
+                <span className="text-brand-dark font-serif">€{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500 font-light">Shipping</span>
@@ -160,7 +160,7 @@ const Checkout = ({ cartItems, cartCount }) => {
               </div>
               <div className="flex justify-between items-end pt-4">
                 <span className="text-brand-dark font-bold uppercase tracking-widest text-xs">Total</span>
-                <span className="text-3xl font-serif text-brand-dark leading-none">${total.toLocaleString()}</span>
+                <span className="text-3xl font-serif text-brand-dark leading-none">€{total.toFixed(2)}</span>
               </div>
             </div>
 

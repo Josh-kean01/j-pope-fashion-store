@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const OrderSuccess = () => {
+const OrderSuccess = ({ onClearCart }) => {
   useEffect(() => {
-    // Clear cart on success
+    // Clear cart from both localStorage and React state
     localStorage.removeItem('cart');
+    if (onClearCart) onClearCart();
   }, []);
 
   return (

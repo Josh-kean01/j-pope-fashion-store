@@ -26,7 +26,8 @@ const ProductDetail = ({ addToCart, toggleWishlist, wishlistItems }) => {
       <Recommendations 
         addToCart={addToCart} 
         toggleWishlist={toggleWishlist} 
-        wishlistItems={wishlistItems} 
+        wishlistItems={wishlistItems}
+        currentProduct={product}
       />
     </div>
   );

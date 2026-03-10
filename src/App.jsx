@@ -90,6 +90,11 @@ function App() {
     setCartItems(prev => prev.filter(item => item.id !== id));
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem('cart');
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -122,7 +127,7 @@ function App() {
             <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/profile" element={<Profile wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />
-            <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path="/order-success" element={<OrderSuccess onClearCart={clearCart} />} />
           </Routes>
         </main>
         

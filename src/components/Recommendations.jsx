@@ -2,9 +2,16 @@ import React from 'react';
 import { products } from '../data/products';
 import ProductCard from './ProductCard';
 
-const Recommendations = ({ addToCart, toggleWishlist, wishlistItems }) => {
-  // Use a subset of products for recommendations
-  const recommendedProducts = products.slice(1, 5);
+const Recommendations = ({ addToCart, toggleWishlist, wishlistItems, currentProduct }) => {
+  // Exclude current product, prioritize same category, take 4
+  const recommendedProducts = products
+    .filter(p => p.id !== currentProduct?.id)
+    .sort((a, b) => {
+      const aMatch = a.category === currentProduct?.category ? -1 : 1;
+      const bMatch = b.category === currentProduct?.category ? -1 : 1;
+      return aMatch - bMatch;
+    })
+    .slice(0, 4);
 
   return (
     <section className="bg-white py-16 border-t border-gray-100 mt-20">

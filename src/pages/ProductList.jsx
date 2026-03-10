@@ -12,7 +12,8 @@ const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeSort, setActiveSort] = useState('Featured');
   
-  const categories = ['All', 'Outerwear', 'Knitwear', 'Trousers', 'Accessories'];
+  const categories = ['All', 'Outerwear', 'Knitwear', 'Trousers', 'Footwear', 'Accessories'];
+  const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low'];
 
   const filteredProducts = useMemo(() => {
     let result = products;
@@ -76,18 +77,29 @@ const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
           )}
         </div>
         
-        {/* Filter Bar */}
-        <div className="w-full lg:w-auto overflow-x-auto no-scrollbar py-2">
-          <div className="flex space-x-6 border-b border-gray-100 pb-6">
-            {categories.map((cat) => (
-              <button 
-                key={cat} 
-                onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all whitespace-nowrap border ${activeCategory === cat ? 'bg-brand-dark text-white border-brand-dark' : 'bg-white border-gray-200 text-gray-400 hover:border-brand-dark hover:text-brand-dark'}`}
-              >
-                {cat}
-              </button>
-            ))}
+        {/* Filter & Sort Bar */}
+        <div className="w-full overflow-x-auto no-scrollbar py-2 space-y-4">
+          <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center border-b border-gray-100 pb-6">
+            <div className="flex space-x-3 flex-wrap gap-y-3">
+              {categories.map((cat) => (
+                <button 
+                  key={cat} 
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all whitespace-nowrap border ${activeCategory === cat ? 'bg-brand-dark text-white border-brand-dark' : 'bg-white border-gray-200 text-gray-400 hover:border-brand-dark hover:text-brand-dark'}`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+            <select
+              value={activeSort}
+              onChange={(e) => setActiveSort(e.target.value)}
+              className="text-[10px] font-bold uppercase tracking-[0.2em] border border-gray-200 rounded-full px-6 py-3 bg-white text-gray-600 outline-none hover:border-brand-dark transition-colors cursor-pointer appearance-none pr-10 min-w-[180px]"
+            >
+              {sortOptions.map(opt => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
           </div>
         </div>
       </header>
@@ -111,11 +123,18 @@ const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
         )}
       </div>
       
-      {/* Pagination - Premium Style */}
+      {/* Discover More - resets filters */}
       <div className="mt-32 text-center">
-        <button className="px-16 py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-brand-accent transition-all rounded-full shadow-2xl shadow-brand-dark/20">
-          Discover More
-        </button>
+        {activeCategory !== 'All' || activeSort !== 'Featured' ? (
+          <button 
+            onClick={() => { setActiveCategory('All'); setActiveSort('Featured'); }}
+            className="px-16 py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-brand-accent transition-all rounded-full shadow-2xl shadow-brand-dark/20"
+          >
+            View All Pieces
+          </button>
+        ) : (
+          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-300">The Complete Anthology</p>
+        )}
       </div>
     </div>
   );

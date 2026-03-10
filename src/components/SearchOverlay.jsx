@@ -55,7 +55,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                </svg>
             </button>
           </div>
-          {/* ... suggestions unchanged ... */}
+
 
           {/* Search Suggestions */}
           <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-16">
