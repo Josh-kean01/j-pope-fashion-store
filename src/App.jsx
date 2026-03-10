@@ -14,6 +14,7 @@ import SearchOverlay from './components/SearchOverlay';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
 import Journal from './pages/Journal';
+import JournalArticle from './pages/JournalArticle';
 import Wishlist from './pages/Wishlist';
 import Profile from './pages/Profile';
 import Toast from './components/Toast';
@@ -124,6 +125,7 @@ function App() {
             <Route path="/product" element={<ProductDetail addToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />} />
             <Route path="/about" element={<About />} />
             <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:id" element={<JournalArticle />} />
             <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/profile" element={<Profile wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />

@@ -15,7 +15,7 @@ const Journal = () => {
         </div>
 
         {/* Featured Article */}
-        <div className="mb-48 group cursor-pointer">
+        <Link to={`/journal/${articles[0].id}`} className="mb-48 group cursor-pointer block">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 aspect-[16/9] overflow-hidden rounded-[3rem] shadow-2xl relative">
               <img 
@@ -36,17 +36,17 @@ const Journal = () => {
               <p className="text-gray-500 font-light text-lg leading-relaxed">
                 {articles[0].excerpt}
               </p>
-              <button className="text-[10px] font-bold uppercase tracking-[0.3em] pb-2 border-b border-brand-dark hover:border-brand-accent transition-colors">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-[0.3em] pb-2 border-b border-brand-dark group-hover:border-brand-accent group-hover:text-brand-accent transition-colors">
                 Read Narrative
-              </button>
+              </span>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
           {articles.slice(1).map((article) => (
-            <div key={article.id} className="group cursor-pointer">
+            <Link key={article.id} to={`/journal/${article.id}`} className="group cursor-pointer block">
               <div className="aspect-square overflow-hidden rounded-[2.5rem] mb-10 shadow-lg relative">
                 <img 
                   src={article.image} 
@@ -66,7 +66,7 @@ const Journal = () => {
                   {article.excerpt}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
