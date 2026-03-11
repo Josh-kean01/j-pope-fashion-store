@@ -36,3 +36,17 @@ details[open] summary~* {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes preloaderSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(240%);
+  }
+}
+
+.preloader-sweep {
+  animation: preloaderSweep 1.2s ease-in-out infinite;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,29 +23,69 @@ import ShippingReturns from './pages/ShippingReturns';
 import NotFound from './pages/NotFound';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
+import Preloader from './components/Preloader';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const [wishlistItems, setWishlistItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+  const [wishlistItems, setWishlistItems] = useState(() => {
+    const savedWishlist = localStorage.getItem('wishlist');
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [toast, setToast] = useState({ show: false, message: '' });
+  const [showPreloader, setShowPreloader] = useState(true);
+  const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
 
-  // Persistence
-  React.useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    const savedWishlist = localStorage.getItem('wishlist');
-    if (savedCart) setCartItems(JSON.parse(savedCart));
-    if (savedWishlist) setWishlistItems(JSON.parse(savedWishlist));
-  }, []);
-
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
   }, [wishlistItems]);
+
+  useEffect(() => {
+    const startedAt = performance.now();
+    const minimumDuration = 900;
+    let revealTimer;
+    let removeTimer;
+
+    const finishPreload = () => {
+      const elapsed = performance.now() - startedAt;
+      const remaining = Math.max(0, minimumDuration - elapsed);
+
+      revealTimer = window.setTimeout(() => {
+        setIsPreloaderVisible(false);
+        removeTimer = window.setTimeout(() => {
+          setShowPreloader(false);
+        }, 500);
+      }, remaining);
+    };
+
+    if (document.readyState === 'complete') {
+      finishPreload();
+    } else {
+      window.addEventListener('load', finishPreload, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener('load', finishPreload);
+      window.clearTimeout(revealTimer);
+      window.clearTimeout(removeTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = showPreloader ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showPreloader]);
 
   const showToast = (message) => {
     setToast({ show: true, message });
@@ -110,6 +150,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <CustomCursor />
+      {showPreloader && <Preloader isVisible={isPreloaderVisible} />}
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       <CartDrawer 
         isOpen={isCartOpen} 
