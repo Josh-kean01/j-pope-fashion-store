@@ -1,8 +1,13 @@
 import React from 'react';
+import Seo from '../components/Seo';
 
 const ShippingReturns = () => {
   return (
     <div className="min-h-screen bg-brand-bg px-6 py-32 animate-fadeIn">
+      <Seo
+        title="Shipping and Returns"
+        description="Review J-Pope shipping timelines, return conditions, and customer support guidance."
+      />
       <div className="container mx-auto max-w-4xl space-y-16">
         <header className="space-y-6">
           <span className="block text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">Support</span>

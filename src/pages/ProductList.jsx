@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
 
 const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
   const location = useLocation();
@@ -54,6 +55,12 @@ const ProductList = ({ addToCart, toggleWishlist, wishlistItems }) => {
 
   return (
     <div className="container mx-auto px-6 py-16 animate-fadeIn">
+      <Seo
+        title={searchQuery ? `Search: ${searchQuery}` : 'Shop'}
+        description={searchQuery
+          ? `Browse J-Pope search results for ${searchQuery}. Explore curated luxury fashion pieces, outerwear, knitwear, footwear, and accessories.`
+          : 'Shop the J-Pope anthology of luxury essentials, including outerwear, knitwear, trousers, footwear, and accessories.'}
+      />
       {/* Editorial Header */}
       <header className="mb-20 text-center lg:text-left flex flex-col lg:flex-row justify-between items-end gap-12">
         <div className="max-w-2xl">

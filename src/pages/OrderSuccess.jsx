@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const OrderSuccess = ({ onCompleteOrder }) => {
   const location = useLocation();
@@ -21,6 +22,11 @@ const OrderSuccess = ({ onCompleteOrder }) => {
 
   return (
     <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+      <Seo
+        title="Order Confirmed"
+        description="Your J-Pope order has been confirmed."
+        noindex={true}
+      />
       <div className="max-w-md w-full bg-white p-12 rounded-[3rem] shadow-2xl space-y-8 relative overflow-hidden">
         {/* Premium Badge */}
         <div className="w-20 h-20 bg-brand-dark text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">

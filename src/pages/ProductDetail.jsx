@@ -4,6 +4,7 @@ import { products } from '../data/products';
 import ProductGallery from '../components/ProductGallery';
 import ProductInfo from '../components/ProductInfo';
 import Recommendations from '../components/Recommendations';
+import Seo from '../components/Seo';
 
 const ProductDetail = ({ addToCart, toggleWishlist, wishlistItems }) => {
   const { id } = useParams();
@@ -11,6 +12,12 @@ const ProductDetail = ({ addToCart, toggleWishlist, wishlistItems }) => {
 
   return (
     <div className="animate-fadeIn">
+      <Seo
+        title={product.name}
+        description={product.description}
+        image={product.image}
+        type="product"
+      />
       <main className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <ProductGallery key={`${product.id}-gallery`} product={product} />

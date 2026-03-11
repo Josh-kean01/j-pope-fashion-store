@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const Profile = ({ wishlistItems, toggleWishlist, addToCart }) => {
   const [activeTab, setActiveTab] = useState('Wishlist');
@@ -14,6 +15,11 @@ const Profile = ({ wishlistItems, toggleWishlist, addToCart }) => {
 
   return (
     <div className="bg-brand-bg min-h-screen pt-32 pb-48 animate-fadeIn">
+      <Seo
+        title="Account"
+        description="Manage your J-Pope account, wishlist, settings, and order history."
+        noindex={true}
+      />
       <div className="container mx-auto px-6">
         {/* Profile Header */}
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24 border-b border-gray-100 pb-12">

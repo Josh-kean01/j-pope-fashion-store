@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
 import heroImage from '../assets/images/hero.png';
 
 const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
@@ -9,6 +10,11 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
 
   return (
     <div className="animate-fadeIn">
+      <Seo
+        title="Luxury Minimalist Fashion"
+        description="Discover J-Pope, a luxury fashion portfolio featuring editorial collections, timeless essentials, and a refined minimalist shopping experience."
+        image={heroImage}
+      />
       {/* Hero Section with Cinematic Video */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

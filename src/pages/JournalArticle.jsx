@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { articles } from '../data/journal';
+import Seo from '../components/Seo';
 
 const JournalArticle = () => {
   const { id } = useParams();
@@ -26,6 +27,12 @@ const JournalArticle = () => {
 
   return (
     <div className="bg-white animate-fadeIn">
+      <Seo
+        title={article.title}
+        description={article.excerpt}
+        image={article.image}
+        type="article"
+      />
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 z-[200] h-[2px] bg-brand-accent transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
 

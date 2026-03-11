@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const Checkout = ({ cartItems, cartCount }) => {
   const navigate = useNavigate();
@@ -31,6 +32,11 @@ const Checkout = ({ cartItems, cartCount }) => {
 
   return (
     <div className="container mx-auto mb-32 px-6 py-24 animate-fadeIn">
+      <Seo
+        title="Checkout"
+        description="Complete your J-Pope order."
+        noindex={true}
+      />
       <div className="flex flex-col gap-24 lg:grid lg:grid-cols-12">
         <div className="space-y-16 lg:col-span-7">
           <section>

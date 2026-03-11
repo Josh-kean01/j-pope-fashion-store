@@ -1,10 +1,15 @@
 import React from 'react';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
 
 const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
   return (
     <div className="bg-brand-bg min-h-screen">
+      <Seo
+        title="Lookbook"
+        description="Browse the J-Pope lookbook for editorial styling, seasonal fashion storytelling, and shoppable luxury looks."
+      />
       {/* Chapter 1: Structure & Form */}
       <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden py-32">
         <div className="container mx-auto px-6 relative z-10">

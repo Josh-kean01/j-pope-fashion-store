@@ -1,10 +1,15 @@
 import React from 'react';
 import { articles } from '../data/journal';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const Journal = () => {
   return (
     <div className="bg-white min-h-screen pt-32 pb-48 animate-fadeIn">
+      <Seo
+        title="Journal"
+        description="Read the J-Pope journal for editorial stories on craftsmanship, minimalist fashion, and luxury design philosophy."
+      />
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="max-w-4xl mb-32">

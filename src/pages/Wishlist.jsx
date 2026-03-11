@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
 
 const Wishlist = ({ wishlistItems, toggleWishlist, addToCart }) => {
   return (
     <div className="bg-brand-bg min-h-screen pt-32 pb-48 animate-fadeIn">
+      <Seo
+        title="Wishlist"
+        description="Saved pieces in your J-Pope wishlist."
+        noindex={true}
+      />
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="max-w-4xl mb-24">

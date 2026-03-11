@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const NotFound = () => {
   return (
     <div className="min-h-[80vh] bg-brand-bg px-6 py-32 animate-fadeIn">
+      <Seo
+        title="Page Not Found"
+        description="The page you requested could not be found."
+        noindex={true}
+      />
       <div className="container mx-auto flex max-w-3xl flex-col items-center justify-center space-y-8 text-center">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">404</span>
         <h1 className="text-5xl uppercase tracking-tight text-brand-dark md:text-7xl font-serif">Page Not Found</h1>

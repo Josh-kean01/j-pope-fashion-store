@@ -1,8 +1,13 @@
 import React from 'react';
+import Seo from '../components/Seo';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-brand-bg px-6 py-32 animate-fadeIn">
+      <Seo
+        title="Privacy Policy"
+        description="Read the J-Pope privacy policy for information about data collection, use, and customer rights."
+      />
       <div className="container mx-auto max-w-4xl space-y-16">
         <header className="space-y-6">
           <span className="block text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">Legal</span>

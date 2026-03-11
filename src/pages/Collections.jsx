@@ -3,10 +3,15 @@ import { collections } from '../data/collections';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import Moodboard from '../components/Moodboard';
+import Seo from '../components/Seo';
 
 const Collections = ({ addToCart, toggleWishlist, wishlistItems }) => {
   return (
     <div className="bg-brand-bg min-h-screen animate-fadeIn">
+      <Seo
+        title="Collections"
+        description="Explore J-Pope seasonal collections and editorial fashion narratives, from The Minimalist Edit to Evening Noir and Urban Sanctuary."
+      />
       {/* Intro Section */}
       <header className="pt-32 pb-20 container mx-auto px-6 text-center">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent mb-4 block">The Anthology</span>

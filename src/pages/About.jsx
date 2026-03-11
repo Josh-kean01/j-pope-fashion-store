@@ -1,8 +1,13 @@
 import React from 'react';
+import Seo from '../components/Seo';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-brand-bg animate-fadeIn">
+      <Seo
+        title="About"
+        description="Learn about J-Pope, a minimalist luxury fashion concept rooted in craftsmanship, material integrity, and timeless design."
+      />
       <section className="relative flex h-[80vh] items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img

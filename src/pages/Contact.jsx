@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Seo from '../components/Seo';
 
 const Contact = () => {
   const [, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -20,6 +21,10 @@ const Contact = () => {
 
   return (
     <div className="animate-fadeIn bg-white">
+      <Seo
+        title="Contact"
+        description="Contact the J-Pope atelier for order enquiries, bespoke requests, press, and general support."
+      />
       <div className="relative flex h-[45vh] items-end overflow-hidden bg-brand-dark">
         <div
           className="absolute inset-0 opacity-20"
