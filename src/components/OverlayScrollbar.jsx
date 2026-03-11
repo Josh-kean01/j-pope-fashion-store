@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const MIN_THUMB_HEIGHT = 40;
 const VISIBILITY_TIMEOUT = 700;
-const EDGE_ACTIVATION_WIDTH = 28;
+const EDGE_ACTIVATION_WIDTH = 20;
 
 const getScrollMetrics = () => {
   const doc = document.documentElement;
@@ -130,16 +130,13 @@ const OverlayScrollbar = () => {
   const thumbHeight = Math.max((metrics.clientHeight / metrics.scrollHeight) * trackHeight, MIN_THUMB_HEIGHT);
   const maxThumbOffset = Math.max(trackHeight - thumbHeight, 0);
   const thumbOffset = maxScroll === 0 ? 0 : (metrics.scrollTop / maxScroll) * maxThumbOffset;
-  const shouldRevealTrack = isDragging || isEdgeHovered;
 
   return (
-    <div className="overlay-scrollbar fixed inset-y-0 right-0 z-[9998] w-6 select-none">
+    <div className="overlay-scrollbar fixed bottom-0 right-0 top-20 z-40 w-3 select-none">
       <div
         ref={trackRef}
-        className={`absolute bottom-3 right-2 top-3 rounded-full transition-colors duration-200 ${
-          shouldRevealTrack ? 'bg-black/10' : 'bg-transparent'
-        }`}
-        style={{ width: shouldRevealTrack ? '8px' : '6px' }}
+        className="absolute bottom-3 right-0.5 top-3 bg-transparent"
+        style={{ width: '4px' }}
       >
         <button
           type="button"
@@ -150,7 +147,7 @@ const OverlayScrollbar = () => {
           style={{
             height: `${thumbHeight}px`,
             transform: `translateY(${thumbOffset}px)`,
-            width: shouldRevealTrack ? '8px' : '6px',
+            width: '3px',
             cursor: isDragging ? 'grabbing' : 'grab',
           }}
           onMouseDown={(event) => {
