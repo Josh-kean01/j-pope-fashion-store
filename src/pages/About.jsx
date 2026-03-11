@@ -18,25 +18,25 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/0 via-brand-bg/20 to-brand-bg"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-6">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
             <span className="mb-6 block text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">The Philosophy</span>
-            <h1 className="mb-12 text-6xl uppercase leading-[0.9] tracking-tighter text-brand-dark md:text-8xl font-serif">
+            <h1 className="mb-8 font-serif text-4xl uppercase leading-[0.92] tracking-tight text-brand-dark sm:mb-12 sm:text-6xl md:text-8xl md:tracking-tighter">
               Quiet Luxury.
               <br />
-              <span className="ml-12 italic md:ml-24">Vocal Quality.</span>
+              <span className="ml-8 italic sm:ml-12 md:ml-24">Vocal Quality.</span>
             </h1>
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 items-start gap-24 lg:grid-cols-12">
+      <section className="container mx-auto px-4 py-20 sm:px-6 sm:py-32">
+        <div className="grid grid-cols-1 items-start gap-12 sm:gap-24 lg:grid-cols-12">
           <div className="space-y-12 lg:col-span-5">
-            <h2 className="text-4xl italic leading-tight text-brand-dark font-serif">
+            <h2 className="font-serif text-3xl italic leading-tight text-brand-dark sm:text-4xl">
               Founded on the belief that true elegance doesn&apos;t demand attention - it commands it.
             </h2>
-            <p className="text-lg font-light leading-relaxed text-gray-600">
+            <p className="text-base font-light leading-relaxed text-gray-600 lg:text-lg">
               J-Pope was born in the pursuit of the perfect silhouette. Our journey began in a small atelier with a single bolt of Loro Piana wool and a commitment to subtraction. We believe that by removing the unnecessary, we reveal the essential.
             </p>
             <div className="border-t border-gray-100 pt-8 text-sm italic text-gray-400">
@@ -56,11 +56,11 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-white py-32">
-        <div className="container mx-auto px-6">
-          <div className="mb-24 text-center">
+      <section className="bg-white py-20 sm:py-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="mb-16 text-center sm:mb-24">
             <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.4em] text-brand-accent">The Process</span>
-            <h2 className="text-5xl uppercase tracking-tight text-brand-dark font-serif">Artisanal Integrity</h2>
+            <h2 className="font-serif text-3xl uppercase tracking-tight text-brand-dark sm:text-5xl">Artisanal Integrity</h2>
           </div>
 
           <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
@@ -136,9 +136,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-brand-bg px-6 py-48 text-center">
+      <section className="bg-brand-bg px-4 py-28 text-center sm:px-6 sm:py-48">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-12 text-3xl italic leading-tight text-brand-dark md:text-5xl font-serif">
+          <p className="mb-10 font-serif text-2xl italic leading-tight text-brand-dark sm:mb-12 sm:text-3xl md:text-5xl">
             &quot;We believe that the most powerful statement is made in the silence between the trends.&quot;
           </p>
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-dark">- THE J-POPE MANIFESTO</span>

@@ -10,12 +10,12 @@ const Journal = () => {
         title="Journal"
         description="Read the J-Pope journal for editorial stories on craftsmanship, minimalist fashion, and luxury design philosophy."
       />
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-4xl mb-32">
+        <div className="mb-20 max-w-4xl sm:mb-32">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent block mb-6">Anthology</span>
-          <h1 className="text-6xl md:text-8xl font-serif text-brand-dark leading-[0.9] uppercase tracking-tighter">
-            The <br/><span className="italic ml-24 md:ml-48">Journal.</span>
+          <h1 className="font-serif text-4xl uppercase leading-[0.92] tracking-tight text-brand-dark sm:text-6xl md:text-8xl md:tracking-tighter">
+            The <br/><span className="italic ml-12 sm:ml-24 md:ml-48">Journal.</span>
           </h1>
         </div>
 
@@ -35,10 +35,10 @@ const Journal = () => {
                 <span className="text-[10px] font-bold uppercase tracking-widest text-brand-accent">{articles[0].category}</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-gray-300">{articles[0].date}</span>
               </div>
-              <h2 className="text-5xl font-serif text-brand-dark leading-tight group-hover:italic transition-all duration-700">
+              <h2 className="font-serif text-3xl leading-tight text-brand-dark transition-all duration-700 group-hover:italic sm:text-4xl lg:text-5xl">
                 {articles[0].title}
               </h2>
-              <p className="text-gray-500 font-light text-lg leading-relaxed">
+              <p className="text-base font-light leading-relaxed text-gray-500 lg:text-lg">
                 {articles[0].excerpt}
               </p>
               <span className="inline-block text-[10px] font-bold uppercase tracking-[0.3em] pb-2 border-b border-brand-dark group-hover:border-brand-accent group-hover:text-brand-accent transition-colors">
@@ -77,10 +77,10 @@ const Journal = () => {
       </div>
 
       {/* Newsletter Section */}
-      <section className="mt-48 py-32 bg-brand-bg/50 border-y border-gray-100">
-        <div className="container mx-auto px-6 text-center">
-           <div className="max-w-2xl mx-auto space-y-12">
-              <h2 className="text-4xl font-serif text-brand-dark italic">Join the Inner Circle</h2>
+      <section className="mt-32 border-y border-gray-100 bg-brand-bg/50 py-24 sm:mt-48 sm:py-32">
+        <div className="container mx-auto px-4 text-center sm:px-6">
+           <div className="mx-auto max-w-2xl space-y-10 sm:space-y-12">
+              <h2 className="font-serif text-3xl italic text-brand-dark sm:text-4xl">Join the Inner Circle</h2>
               <p className="text-gray-500 font-light">Receive early access to collections and exclusive editorial insights directly from the Atelier.</p>
               <div className="flex gap-4 max-w-md mx-auto relative">
                 <input 

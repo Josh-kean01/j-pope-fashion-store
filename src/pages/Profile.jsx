@@ -20,26 +20,26 @@ const Profile = ({ wishlistItems, toggleWishlist, addToCart }) => {
         description="Manage your J-Pope account, wishlist, settings, and order history."
         noindex={true}
       />
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Profile Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24 border-b border-gray-100 pb-12">
+        <div className="mb-16 flex flex-col gap-8 border-b border-gray-100 pb-10 sm:mb-24 sm:gap-12 sm:pb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl">
             <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent block mb-6">The Anthology</span>
-            <h1 className="text-6xl md:text-8xl font-serif text-brand-dark leading-[0.9] uppercase tracking-tighter">
-              My <br/><span className="italic ml-24 md:ml-48 text-brand-accent">Account.</span>
+            <h1 className="font-serif text-4xl uppercase leading-[0.92] tracking-tight text-brand-dark sm:text-6xl md:text-8xl md:tracking-tighter">
+              My <br/><span className="italic ml-12 sm:ml-24 md:ml-48 text-brand-accent">Account.</span>
             </h1>
           </div>
-          <div className="text-right flex items-center gap-6">
-             <div className="text-right">
-                <p className="font-serif text-2xl text-brand-dark italic">Vidal J. Pope</p>
+          <div className="flex items-center gap-4 self-start text-left sm:gap-6 lg:self-auto lg:text-right">
+             <div className="text-left lg:text-right">
+                <p className="font-serif text-xl italic text-brand-dark sm:text-2xl">Vidal J. Pope</p>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Platinum Member</p>
              </div>
-             <div className="w-20 h-20 rounded-full bg-brand-dark flex items-center justify-center text-white font-serif text-3xl">V</div>
+             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-dark font-serif text-2xl text-white sm:h-20 sm:w-20 sm:text-3xl">V</div>
           </div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex gap-12 mb-20 border-b border-gray-100">
+        <div className="mb-16 flex gap-6 overflow-x-auto border-b border-gray-100 sm:mb-20 sm:gap-12">
           {tabs.map(tab => (
             <button
               key={tab}
@@ -59,7 +59,7 @@ const Profile = ({ wishlistItems, toggleWishlist, addToCart }) => {
           {activeTab === 'Wishlist' && (
             <div className="space-y-12">
               {wishlistItems.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
                   {wishlistItems.map((product) => (
                     <ProductCard 
                       key={product.id} 

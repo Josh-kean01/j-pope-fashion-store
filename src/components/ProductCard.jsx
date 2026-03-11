@@ -7,16 +7,16 @@ const ProductCard = ({ product, onAddToCart, toggleWishlist, wishlistItems = [] 
   return (
     <div className="group cursor-pointer relative">
       <Link to={`/product/${product.id}`}>
-        <div className="aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 mb-4 relative">
+        <div className="relative mb-3 aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 sm:mb-4">
           <img 
             alt={product.name} 
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
             src={product.image} 
           />
           {/* Quick Add Overlay */}
-          <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white/40 backdrop-blur-md">
+          <div className="absolute inset-x-0 bottom-0 translate-y-full bg-white/40 p-3 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0 sm:p-4">
             <button 
-              className="w-full py-3 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full shadow-lg hover:bg-brand-accent transition-all duration-300"
+              className="w-full rounded-full bg-brand-dark py-2.5 text-[9px] font-bold uppercase tracking-[0.18em] text-white shadow-lg transition-all duration-300 hover:bg-brand-accent sm:py-3 sm:text-[10px] sm:tracking-[0.2em]"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -36,10 +36,10 @@ const ProductCard = ({ product, onAddToCart, toggleWishlist, wishlistItems = [] 
           e.stopPropagation();
           toggleWishlist(product);
         }}
-        className={`absolute top-4 right-4 z-10 p-3 rounded-full backdrop-blur-md transition-all duration-500 scale-90 group-hover:scale-100 ${isWishlisted ? 'bg-white text-red-500 shadow-lg' : 'bg-white/20 text-white hover:bg-white hover:text-brand-dark'}`}
+        className={`absolute right-3 top-3 z-10 rounded-full p-2.5 backdrop-blur-md transition-all duration-500 scale-90 group-hover:scale-100 sm:right-4 sm:top-4 sm:p-3 ${isWishlisted ? 'bg-white text-red-500 shadow-lg' : 'bg-white/20 text-white hover:bg-white hover:text-brand-dark'}`}
       >
         <svg 
-          className={`w-4 h-4 transition-transform duration-500 ${isWishlisted ? 'scale-110 fill-current' : ''}`} 
+          className={`h-3.5 w-3.5 transition-transform duration-500 sm:h-4 sm:w-4 ${isWishlisted ? 'scale-110 fill-current' : ''}`} 
           fill={isWishlisted ? "currentColor" : "none"} 
           stroke="currentColor" 
           strokeWidth="1.5" 
@@ -49,13 +49,13 @@ const ProductCard = ({ product, onAddToCart, toggleWishlist, wishlistItems = [] 
         </svg>
       </button>
 
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-serif text-lg text-brand-dark mb-1 group-hover:text-brand-accent transition-colors">{product.name}</h3>
-          <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{product.price}</p>
+      <div className="flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
+        <div className="min-w-0">
+          <h3 className="mb-1 font-serif text-base text-brand-dark transition-colors group-hover:text-brand-accent sm:text-lg">{product.name}</h3>
+          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-gray-400 sm:text-[10px] sm:tracking-widest">{product.price}</p>
         </div>
         {product.stock <= 3 && (
-          <span className="text-[8px] font-bold text-red-500 uppercase tracking-widest bg-red-50 px-2 py-1 rounded">Last {product.stock}</span>
+          <span className="shrink-0 rounded bg-red-50 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.14em] text-red-500 sm:tracking-widest">Last {product.stock}</span>
         )}
       </div>
     </div>

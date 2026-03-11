@@ -11,16 +11,16 @@ const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
         description="Browse the J-Pope lookbook for editorial styling, seasonal fashion storytelling, and shoppable luxury looks."
       />
       {/* Chapter 1: Structure & Form */}
-      <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden py-32">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-20 sm:py-32">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-12">
             <div className="lg:col-span-5 order-2 lg:order-1">
-              <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-accent mb-8 block mb-4">Chapter I</span>
-              <h1 className="text-7xl md:text-9xl font-serif text-brand-dark mb-10 leading-[0.8] uppercase tracking-tighter">
+              <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent sm:mb-8 sm:tracking-[0.6em]">Chapter I</span>
+              <h1 className="mb-8 font-serif text-5xl uppercase leading-[0.82] tracking-tight text-brand-dark sm:text-6xl md:mb-10 md:text-9xl md:tracking-tighter">
                 Structure <br/>
                 <span className="italic ml-8 md:ml-20 text-brand-accent">& Form</span>
               </h1>
-              <p className="text-gray-500 font-light leading-relaxed text-lg max-w-sm mb-12">
+              <p className="mb-10 max-w-sm text-base font-light leading-relaxed text-gray-500 sm:mb-12 lg:text-lg">
                 A study in architectural precision. We explore the dialogue between heavy wools and the human silhouette.
               </p>
               <div className="flex items-center gap-8">
@@ -48,23 +48,23 @@ const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* Interstitial Quote */}
-      <section className="py-48 bg-white overflow-hidden relative">
+      <section className="relative overflow-hidden bg-white py-24 sm:py-48">
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
           <span className="text-[20rem] font-serif uppercase tracking-tighter whitespace-nowrap">CRAFTMANSHIP</span>
         </div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <p className="text-3xl md:text-5xl font-serif text-brand-dark italic leading-tight max-w-4xl mx-auto">
+        <div className="container relative z-10 mx-auto px-4 text-center sm:px-6">
+          <p className="mx-auto max-w-4xl font-serif text-2xl italic leading-tight text-brand-dark sm:text-3xl md:text-5xl">
             "The most powerful statement is made in the silence between the trends."
           </p>
         </div>
       </section>
 
       {/* Chapter 2: The Modern Nomad */}
-      <section className="py-32 container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+      <section className="container mx-auto px-4 py-20 sm:px-6 sm:py-32">
+        <div className="grid grid-cols-1 items-start gap-12 sm:gap-24 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-2 gap-8">
-              <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-soft mt-24">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+              <div className="mt-0 aspect-[3/4] overflow-hidden rounded-[2rem] shadow-soft sm:mt-24">
                 <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=1000&auto=format&fit=crop" alt="Look 2" className="w-full h-full object-cover" />
               </div>
               <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-soft">
@@ -72,9 +72,9 @@ const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-5 sticky top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
             <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-accent mb-4 block">Chapter II</span>
-            <h2 className="text-6xl font-serif text-brand-dark mb-8 uppercase tracking-tighter">The Modern <br/>Nomad</h2>
+            <h2 className="mb-6 font-serif text-4xl uppercase tracking-tight text-brand-dark sm:mb-8 sm:text-5xl lg:text-6xl">The Modern <br/>Nomad</h2>
             <div className="space-y-6 text-gray-500 font-light leading-relaxed">
               <p>
                 Navigating the concrete vastness with fluidity and ease. Our technical silk blends and seamless knits are designed for the individual who finds sanctuary in rotation.
@@ -109,13 +109,13 @@ const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* Chapter 3: Nocturnal Noir */}
-      <section className="py-32 bg-brand-dark text-white overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-32">
+      <section className="overflow-hidden bg-brand-dark py-20 text-white sm:py-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="mb-20 flex flex-col gap-8 sm:gap-12 lg:mb-32 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-accent mb-4 block">Chapter III</span>
-              <h2 className="text-7xl md:text-[8rem] font-serif mb-8 uppercase leading-[0.8] tracking-tighter">Nocturnal<br/>Noir</h2>
-              <p className="text-white/40 font-light leading-relaxed text-lg max-w-md">
+              <h2 className="mb-6 font-serif text-5xl uppercase leading-[0.82] tracking-tight sm:mb-8 sm:text-6xl md:text-[8rem] md:tracking-tighter">Nocturnal<br/>Noir</h2>
+              <p className="max-w-md text-base font-light leading-relaxed text-white/40 lg:text-lg">
                 When the city dims, the silhouette sharpens. A collection of special edition evening essentials in deep shadows and rich textures.
               </p>
             </div>
@@ -149,13 +149,13 @@ const Lookbook = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* Featured Items from Lookbook */}
-      <section className="py-32 bg-brand-bg">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-24">
+      <section className="bg-brand-bg py-20 sm:py-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="mb-16 text-center sm:mb-24">
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-accent block mb-4">Curated Anthology</span>
-            <h2 className="text-5xl font-serif text-brand-dark uppercase tracking-tight italic">Shop the Looks</h2>
+            <h2 className="font-serif text-3xl uppercase tracking-tight italic text-brand-dark sm:text-5xl">Shop the Looks</h2>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
             {products.slice(0, 4).map(product => (
               <ProductCard 
                 key={product.id} 

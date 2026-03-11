@@ -11,17 +11,17 @@ const Wishlist = ({ wishlistItems, toggleWishlist, addToCart }) => {
         description="Saved pieces in your J-Pope wishlist."
         noindex={true}
       />
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-4xl mb-24">
+        <div className="mb-16 max-w-4xl sm:mb-24">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent block mb-6">Your Selection</span>
-          <h1 className="text-6xl md:text-8xl font-serif text-brand-dark leading-[0.9] uppercase tracking-tighter">
-            Personal <br/><span className="italic ml-24 md:ml-48 text-brand-accent">Wishlist.</span>
+          <h1 className="font-serif text-4xl uppercase leading-[0.92] tracking-tight text-brand-dark sm:text-6xl md:text-8xl md:tracking-tighter">
+            Personal <br/><span className="italic ml-12 sm:ml-24 md:ml-48 text-brand-accent">Wishlist.</span>
           </h1>
         </div>
 
         {wishlistItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
             {wishlistItems.map((product) => (
               <ProductCard 
                 key={product.id} 

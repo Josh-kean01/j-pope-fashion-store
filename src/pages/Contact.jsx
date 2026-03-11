@@ -34,17 +34,17 @@ const Contact = () => {
             backgroundSize: 'cover',
           }}
         />
-        <div className="relative container mx-auto px-6 pb-16">
+        <div className="relative container mx-auto px-4 pb-12 sm:px-6 sm:pb-16">
           <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">Reach Out</span>
-          <h1 className="text-6xl uppercase leading-[0.9] tracking-tighter text-white md:text-8xl font-serif">
+          <h1 className="font-serif text-4xl uppercase leading-[0.92] tracking-tight text-white sm:text-6xl md:text-8xl md:tracking-tighter">
             The <span className="italic">Atelier.</span>
           </h1>
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 gap-24 lg:grid-cols-12">
-          <div className="space-y-16 lg:col-span-4">
+      <div className="container mx-auto px-4 py-20 sm:px-6 sm:py-24">
+        <div className="grid grid-cols-1 gap-14 sm:gap-24 lg:grid-cols-12">
+          <div className="space-y-12 sm:space-y-16 lg:col-span-4">
             <div>
               <h2 className="mb-6 text-[10px] font-bold uppercase tracking-[0.4em] text-brand-accent">Atelier Address</h2>
               <address className="not-italic text-sm font-light leading-loose text-gray-600">
@@ -106,7 +106,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">Message Received</span>
-                <h2 className="text-4xl font-serif text-brand-dark">We&apos;ll be in touch.</h2>
+                <h2 className="font-serif text-3xl text-brand-dark sm:text-4xl">We&apos;ll be in touch.</h2>
                 <p className="max-w-sm font-light text-gray-500">Our team at the Atelier will respond within 48 hours during working days.</p>
               </div>
             ) : (
@@ -147,10 +147,10 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-8">
+                <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
                   <button
                     type="submit"
-                    className="rounded-full bg-brand-dark px-16 py-5 text-[10px] font-bold uppercase tracking-[0.4em] text-white shadow-xl transition-all hover:bg-brand-accent"
+                    className="rounded-full bg-brand-dark px-12 py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-white shadow-xl transition-all hover:bg-brand-accent sm:px-16 sm:py-5 sm:tracking-[0.4em]"
                   >
                     Send Message
                   </button>

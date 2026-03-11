@@ -16,7 +16,7 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
         image={heroImage}
       />
       {/* Hero Section with Cinematic Video */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
             <video 
               autoPlay 
@@ -31,11 +31,11 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white px-6 w-full max-w-5xl">
-          <h1 className="text-6xl md:text-[5.5rem] font-serif mb-10 tracking-widest uppercase leading-tight animate-slideDown font-medium">
+        <div className="relative z-10 w-full max-w-5xl px-4 text-center text-white sm:px-6">
+          <h1 className="mb-8 animate-slideDown font-serif text-4xl font-medium uppercase leading-tight tracking-[0.18em] sm:text-5xl md:mb-10 md:text-[5.5rem] md:tracking-widest">
             ELEVATE YOUR ESSENCE
           </h1>
-          <button className="bg-white text-brand-dark px-12 py-4 rounded-full font-bold uppercase tracking-[0.3em] text-[10px] shadow-2xl hover:bg-brand-dark hover:text-white transition-all transform hover:scale-105 active:scale-95">
+          <button className="rounded-full bg-white px-10 py-3 text-[10px] font-bold uppercase tracking-[0.24em] text-brand-dark shadow-2xl transition-all hover:scale-105 hover:bg-brand-dark hover:text-white active:scale-95 sm:px-12 sm:py-4 sm:tracking-[0.3em]">
             SHOP NOW
           </button>
         </div>
@@ -50,11 +50,11 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
       
       {/* Brand Statement Parallax */}
-      <section id="manifesto" className="relative h-[60vh] flex items-center justify-center bg-white overflow-hidden">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-12">
+      <section id="manifesto" className="relative flex h-[60vh] items-center justify-center overflow-hidden bg-white">
+        <div className="container mx-auto px-4 text-center sm:px-6">
+          <div className="mx-auto max-w-4xl space-y-8 sm:space-y-12">
             <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-dark opacity-30 block">The J-Pope Manifesto</span>
-            <p className="text-4xl md:text-6xl font-serif text-brand-dark italic leading-tight">
+            <p className="font-serif text-2xl italic leading-tight text-brand-dark sm:text-3xl md:text-6xl">
               "We believe in the power of subtraction. In the quiet strength of a single seam. In the resonance of pure material."
             </p>
             <div className="w-16 h-px bg-brand-accent mx-auto"></div>
@@ -63,8 +63,8 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* Featured Collections */}
-      <section className="py-32 container mx-auto px-6">
-        <h2 className="font-serif text-center text-brand-dark mb-20 text-3xl uppercase tracking-[0.4em] font-light">Featured Collections</h2>
+      <section className="container mx-auto px-4 py-20 sm:px-6 sm:py-32">
+        <h2 className="mb-14 text-center font-serif text-2xl font-light uppercase tracking-[0.28em] text-brand-dark sm:mb-20 sm:text-3xl sm:tracking-[0.4em]">Featured Collections</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
             { title: "The Minimalist Edit", id: "minimalist-edit", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop" },
@@ -83,7 +83,7 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* The Atelier Section (Atmospheric) */}
-      <section className="relative h-screen bg-brand-dark flex flex-col justify-center overflow-hidden py-32">
+      <section className="relative flex h-screen flex-col justify-center overflow-hidden bg-brand-dark py-20 sm:py-32">
         <div className="absolute inset-0 opacity-20">
           <img 
             src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=2000&auto=format&fit=crop" 
@@ -91,18 +91,18 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
             className="w-full h-full object-cover grayscale"
           />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="space-y-10">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
+            <div className="space-y-6 sm:space-y-10">
               <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent">Behind the Seam</span>
-              <h2 className="text-6xl font-serif text-white uppercase tracking-tighter leading-none">The <br/>Atelier</h2>
-              <p className="text-white/40 font-light leading-relaxed text-lg max-w-md">
+              <h2 className="font-serif text-4xl uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">The <br/>Atelier</h2>
+              <p className="max-w-md text-base font-light leading-relaxed text-white/40 lg:text-lg">
                 Our workshop is where architecture meets anatomy. Each piece is drafted by hand, following the natural cadence of the body. We don't just make clothes; we build sanctuary.
               </p>
               <button className="text-[10px] font-bold uppercase tracking-[0.3em] text-white border-b border-brand-accent pb-2 hover:text-brand-accent transition-colors">Observe the Process</button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl transform translate-y-12">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+               <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl sm:translate-y-12">
                   <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=800&auto=format&fit=crop" alt="Detail 1" className="w-full h-full object-cover" />
                </div>
                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
@@ -114,13 +114,13 @@ const Home = ({ addToCart, toggleWishlist, wishlistItems }) => {
       </section>
 
       {/* Trending Now */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="font-serif text-brand-dark text-4xl tracking-tight italic">Trending Now</h2>
+      <section className="bg-white py-20 sm:py-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="mb-12 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-serif text-3xl italic tracking-tight text-brand-dark sm:text-4xl">Trending Now</h2>
             <button className="text-[10px] font-bold uppercase tracking-[0.3em] border-b-2 border-brand-accent pb-2 hover:text-brand-accent transition-colors">View All Works</button>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
             {trendingProducts.map(p => (
               <ProductCard key={p.id} product={p} onAddToCart={addToCart} toggleWishlist={toggleWishlist} wishlistItems={wishlistItems} />
             ))}
