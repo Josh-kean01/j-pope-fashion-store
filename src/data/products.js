@@ -237,9 +237,9 @@ export const products = [
         price: "€145.00",
         stock: 20,
         description: "A hand-braided belt in full-grain Italian leather with a matte silver pin buckle. The open-weave construction allows for flexible adjustment, making this a versatile foundation piece for any trouser.",
-        image: "https://images.unsplash.com/photo-1624222247343-28519b15d0c3?q=80&w=800&auto=format&fit=crop",
+        image: "https://unsplash.com/photos/5eifdK4c8lo/download?force=true&w=800",
         thumbnails: [
-            "https://images.unsplash.com/photo-1624222247343-28519b15d0c3?q=80&w=800&auto=format&fit=crop",
+            "https://unsplash.com/photos/5eifdK4c8lo/download?force=true&w=800",
         ],
         colors: [
             { label: 'Tan', value: '#C69E5A' },

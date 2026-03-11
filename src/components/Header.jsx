@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import BrandMark from './BrandMark';
 
 const Header = ({ cartCount, onCartClick, onSearchClick }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -20,9 +21,9 @@ const Header = ({ cartCount, onCartClick, onSearchClick }) => {
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100" data-purpose="navigation">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0 w-32">
-            <Link to="/" onClick={closeMobile} className="font-serif font-bold tracking-tight text-brand-dark text-3xl" style={{ fontVariant: 'small-caps' }}>
-              J-Pope
+          <div className="flex-shrink-0 w-40">
+            <Link to="/" onClick={closeMobile} aria-label="J-Pope home" className="inline-flex transition-opacity hover:opacity-80">
+              <BrandMark compact />
             </Link>
           </div>
 
@@ -93,7 +94,9 @@ const Header = ({ cartCount, onCartClick, onSearchClick }) => {
       {/* Mobile Menu Drawer */}
       <div className={`fixed top-0 right-0 z-[90] h-full w-[80vw] max-w-sm bg-white shadow-2xl flex flex-col transition-transform duration-700 ease-out md:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="p-8 flex justify-between items-center border-b border-gray-100">
-          <Link to="/" onClick={closeMobile} className="font-serif font-bold text-brand-dark text-2xl" style={{ fontVariant: 'small-caps' }}>J-Pope</Link>
+          <Link to="/" onClick={closeMobile} aria-label="J-Pope home" className="inline-flex transition-opacity hover:opacity-80">
+            <BrandMark compact className="scale-95 origin-left" />
+          </Link>
           <button onClick={closeMobile} className="text-gray-400 hover:text-brand-dark transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
               <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>

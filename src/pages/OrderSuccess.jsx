@@ -1,12 +1,23 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-const OrderSuccess = ({ onClearCart }) => {
+const OrderSuccess = ({ onCompleteOrder }) => {
+  const location = useLocation();
+  const hasProcessedOrder = useRef(false);
+
   useEffect(() => {
-    // Clear cart from both localStorage and React state
+    if (hasProcessedOrder.current) return;
+    hasProcessedOrder.current = true;
+
+    const purchasedItemIds = location.state?.purchasedItemIds ?? [];
+
+    if (onCompleteOrder) {
+      onCompleteOrder(purchasedItemIds);
+      return;
+    }
+
     localStorage.removeItem('cart');
-    if (onClearCart) onClearCart();
-  }, []);
+  }, [location.state, onCompleteOrder]);
 
   return (
     <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center p-6 text-center animate-fadeIn">

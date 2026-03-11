@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { collections } from '../data/collections';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';

@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isPointer, setIsPointer] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isHidden, setIsHidden] = useState(true);
+  const rafRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setIsHidden(false);
-      
-      const target = e.target;
-      const computedStyle = window.getComputedStyle(target);
-      setIsPointer(
-        computedStyle.cursor === 'pointer' || 
-        target.tagName.toLowerCase() === 'button' || 
-        target.tagName.toLowerCase() === 'a' ||
-        target.closest('button') ||
-        target.closest('a')
-      );
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+
+      rafRef.current = requestAnimationFrame(() => {
+        setPos({ x: e.clientX, y: e.clientY });
+        setIsHidden(false);
+      });
     };
 
     const handleMouseLeave = () => setIsHidden(true);
@@ -32,21 +26,28 @@ const CustomCursor = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
+
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
   return (
-    <div 
-      className={`fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] mix-blend-difference transition-transform duration-300 ease-out hidden lg:block ${
-        isHidden ? 'opacity-0' : 'opacity-100'
-      }`}
+    <div
+      className={`fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:block transition-opacity duration-200 ${isHidden ? 'opacity-0' : 'opacity-100'}`}
       style={{
-        transform: `translate(${position.x - 16}px, ${position.y - 16}px) scale(${isPointer ? 2.5 : 1})`,
+        width: '32px',
+        height: '32px',
+        transform: `translate(${pos.x - 16}px, ${pos.y - 16}px)`,
+        border: '1.5px solid white',
+        borderRadius: '999px',
+        mixBlendMode: 'difference',
+        transition: 'transform 80ms linear, opacity 200ms ease',
       }}
     >
-      <div className="w-full h-full border border-white rounded-full flex items-center justify-center">
-        <div className={`w-1 h-1 bg-white rounded-full transition-opacity duration-300 ${isPointer ? 'opacity-0' : 'opacity-100'}`}></div>
-      </div>
+      <div
+        className="absolute top-1/2 left-1/2 h-1 w-1 rounded-full bg-white"
+        style={{ transform: 'translate(-50%, -50%)' }}
+      />
     </div>
   );
 };

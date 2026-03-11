@@ -18,6 +18,9 @@ import JournalArticle from './pages/JournalArticle';
 import Wishlist from './pages/Wishlist';
 import Contact from './pages/Contact';
 import Profile from './pages/Profile';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import ShippingReturns from './pages/ShippingReturns';
+import NotFound from './pages/NotFound';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
 
@@ -48,22 +51,17 @@ function App() {
     setToast({ show: true, message });
   };
 
-  React.useEffect(() => {
-    if (window.Lenis) {
-      const lenis = new window.Lenis();
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    }
-  }, []);
-
   const addToCart = (product) => {
+    const itemId = product.cartId || product.id;
+
     setCartItems(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      const existing = prev.find(item => (item.cartId || item.id) === itemId);
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
+        return prev.map(item =>
+          (item.cartId || item.id) === itemId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
       }
       return [...prev, { ...product, quantity: 1 }];
     });
@@ -83,18 +81,29 @@ function App() {
     });
   };
 
-  const updateQuantity = (id, quantity) => {
-    if (quantity < 1) return removeItems(id);
-    setCartItems(prev => prev.map(item => item.id === id ? { ...item, quantity } : item));
+  const updateQuantity = (itemId, quantity) => {
+    if (quantity < 1) return removeItems(itemId);
+    setCartItems(prev =>
+      prev.map(item =>
+        (item.cartId || item.id) === itemId ? { ...item, quantity } : item
+      )
+    );
   };
 
-  const removeItems = (id) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
+  const removeItems = (itemId) => {
+    setCartItems(prev => prev.filter(item => (item.cartId || item.id) !== itemId));
   };
 
   const clearCart = () => {
     setCartItems([]);
     localStorage.removeItem('cart');
+  };
+
+  const completeOrder = (purchasedItemIds = []) => {
+    const purchasedIds = new Set(purchasedItemIds);
+
+    setWishlistItems(prev => prev.filter(item => !purchasedIds.has(item.id)));
+    clearCart();
   };
 
   return (
@@ -128,10 +137,13 @@ function App() {
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:id" element={<JournalArticle />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/shipping-returns" element={<ShippingReturns />} />
             <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/profile" element={<Profile wishlistItems={wishlistItems} toggleWishlist={toggleWishlist} addToCart={addToCart} />} />
             <Route path="/checkout" element={<Checkout cartItems={cartItems} cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />} />
-            <Route path="/order-success" element={<OrderSuccess onClearCart={clearCart} />} />
+            <Route path="/order-success" element={<OrderSuccess onCompleteOrder={completeOrder} />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         

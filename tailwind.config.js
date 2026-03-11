@@ -15,6 +15,7 @@ export default {
                 }
             },
             fontFamily: {
+                brand: ['"Space Grotesk"', 'sans-serif'],
                 serif: ['"Playfair Display"', 'serif'],
                 sans: ['"Lato"', 'sans-serif'],
             },

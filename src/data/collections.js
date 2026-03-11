@@ -1,9 +1,3 @@
-import heroImage from '../assets/images/hero.png';
-import coatImage from '../assets/images/coat.png';
-import turtleneckImage from '../assets/images/turtleneck.png';
-import trousersImage from '../assets/images/trousers.png';
-import bootsImage from '../assets/images/boots.png';
-
 export const collections = [
     {
         id: 'minimalist-edit',
