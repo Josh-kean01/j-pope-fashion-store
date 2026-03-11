@@ -24,6 +24,7 @@ import NotFound from './pages/NotFound';
 import Toast from './components/Toast';
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
+import OverlayScrollbar from './components/OverlayScrollbar';
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -150,6 +151,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <CustomCursor />
+      <OverlayScrollbar />
       {showPreloader && <Preloader isVisible={isPreloaderVisible} />}
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       <CartDrawer 

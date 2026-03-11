@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.overlay-scrollbar {
+  pointer-events: none;
+}
+
+.overlay-scrollbar * {
+  pointer-events: auto;
+}
+
+.overlay-scrollbar-thumb:hover,
+.overlay-scrollbar-thumb:active {
+  background: rgba(26, 26, 26, 0.56);
+}
+
 /* Custom styles for smoother accordion animation */
 details>summary {
   list-style: none;
